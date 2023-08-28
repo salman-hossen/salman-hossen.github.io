@@ -3,47 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Landing Page with Animation</title>
+<title>Colorful Landing Page</title>
 <style>
   body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ff6b6b, #70a1ff);
   }
   .container {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0;
+    position: relative;
+    z-index: 1;
   }
   .content {
     text-align: center;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .animate {
+    opacity: 1;
+    transform: translateY(0);
   }
   h1 {
     font-size: 36px;
     margin-bottom: 20px;
+    color: white;
   }
 </style>
 </head>
 <body>
 <div class="container">
-  <div class="content">
-    <h1>Welcome to Our Landing Page</h1>
-    <p>This is a simple landing page with a nice animation.</p>
-    <button id="animateButton">Animate</button>
+  <div class="content" id="content">
+    <h1>Welcome to Our Colorful Landing Page</h1>
+    <p>This is a stylish and colorful landing page with an on-loading animation.</p>
   </div>
 </div>
 <script>
-  const animateButton = document.getElementById("animateButton");
-  const content = document.querySelector(".content");
-
-  animateButton.addEventListener("click", () => {
-    content.style.animation = "fadeIn 1s ease-in-out";
-    setTimeout(() => {
-      content.style.animation = "";
-    }, 1000);
-  });
+  window.onload = () => {
+    const content = document.getElementById("content");
+    content.classList.add("animate");
+  };
 </script>
 </body>
 </html>
