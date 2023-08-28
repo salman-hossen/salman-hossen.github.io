@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landing Page with Animation</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  .container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+  }
+  .content {
+    text-align: center;
+  }
+  h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="content">
+    <h1>Welcome to Our Landing Page</h1>
+    <p>This is a simple landing page with a nice animation.</p>
+    <button id="animateButton">Animate</button>
+  </div>
+</div>
+<script>
+  const animateButton = document.getElementById("animateButton");
+  const content = document.querySelector(".content");
+
+  animateButton.addEventListener("click", () => {
+    content.style.animation = "fadeIn 1s ease-in-out";
+    setTimeout(() => {
+      content.style.animation = "";
+    }, 1000);
+  });
+</script>
+</body>
+</html>
