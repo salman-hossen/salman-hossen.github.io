@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Colorful Landing Page</title>
+<title>Gradient Background Animation</title>
 <style>
   body {
     margin: 0;
@@ -11,14 +11,13 @@
     font-family: Arial, sans-serif;
     overflow: hidden;
     background: linear-gradient(135deg, #ff6b6b, #70a1ff);
+    transition: background 1s ease;
   }
   .container {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    z-index: 1;
   }
   .content {
     text-align: center;
@@ -40,14 +39,29 @@
 <body>
 <div class="container">
   <div class="content" id="content">
-    <h1>Welcome to Our Colorful Landing Page</h1>
-    <p>This is a stylish and colorful landing page with an on-loading animation.</p>
+    <h1>SHAH INTL LTD</h1>
+    <p>We will be back soon.</p>
   </div>
 </div>
 <script>
+  const gradients = [
+    'linear-gradient(135deg, #ff6b6b, #70a1ff)',
+    'linear-gradient(135deg, #70a1ff, #5af78e)',
+    'linear-gradient(135deg, #5af78e, #f9c851)',
+    'linear-gradient(135deg, #f9c851, #ff6b6b)'
+  ];
+  let currentGradientIndex = 0;
+
+  function changeBackgroundGradient() {
+    document.body.style.background = gradients[currentGradientIndex];
+    currentGradientIndex = (currentGradientIndex + 1) % gradients.length;
+  }
+
   window.onload = () => {
     const content = document.getElementById("content");
     content.classList.add("animate");
+
+    setInterval(changeBackgroundGradient, 3000); // Change gradient every 3 seconds
   };
 </script>
 </body>
